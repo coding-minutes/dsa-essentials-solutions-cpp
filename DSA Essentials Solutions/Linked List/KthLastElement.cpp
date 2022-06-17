@@ -17,19 +17,18 @@ public:
 
 int kthLastElement(node * head,int k){
     //Complete this function to return kth last element
-    node * fast = head;
-    node * slow = head;
+    int count{1};
+    node *i = head;
+    node *j = head;
     
-    int cnt = 0;
-    while(cnt < k){
-        fast = fast->next;
-        cnt++;
-    }
-    
-    while(fast!=NULL){
-        slow = slow->next;
-        fast = fast->next;
-    }
-    
-    return slow->data;
+    while (j->next!=NULL){
+      if(count>=k){
+        i = i->next;
+      }
+      j = j->next;
+      count++;
+}
+	
+    return i->data;
+
 }
