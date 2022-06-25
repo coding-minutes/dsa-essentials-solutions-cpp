@@ -1,39 +1,21 @@
-//Expected Time Complexity: O(N)
+//Time complexity: O(n)
 //Hint: Kadane's Algorithm
 
-
-#include<bits/stdc++.h>
-using namespace std;
+#include <bits/stdc++.h>
+using namespace std ;
 
 int maxSumSubarray(vector<int> A) {
+    int n = A.size(), max_sum = *min_element(A.begin(), A.end()), curr_sum = 0;
     
-
-    bool f =true;
-    int rr=INT_MIN;
-    for(auto x : A){
-        if(x >0 ) f = false;
-        if(x > rr) rr = x;
-    }
-    if(f) return rr;
-    
-    int maxSumFromPrevIndexToLeft = 0;
-    
-    int finalAnswer = 0;
-    
-    int temporary  = 0;
-    
-    int arraySize = A.size();
-    for (int i = 0; i < arraySize; i++) {
-        temporary = maxSumFromPrevIndexToLeft + A[i];
-        if (temporary < A[i]) {
-            maxSumFromPrevIndexToLeft = A[i];
+    for(int i = 0 ; i < n ; i++){
+        if(curr_sum + A[i] <= 0){
+            curr_sum = A[i];
+        }else{
+            curr_sum += A[i];
         }
-        else {
-            maxSumFromPrevIndexToLeft = temporary;
-        }
-        finalAnswer = max(finalAnswer, maxSumFromPrevIndexToLeft);
+        
+        max_sum = max(max_sum, curr_sum);
     }
     
-    return finalAnswer;
-    
+    return max_sum;
 }
