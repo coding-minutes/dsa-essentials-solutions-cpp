@@ -13,6 +13,7 @@ void recur(vector<int> &nums, vector<int> ans, int i)
     recur(nums, ans, i+1);
     ans.pop_back();
     recur(nums, ans, i+1);
+    return ;
 }
 vector<vector<int>> uniqueSubsets(vector<int> nums){
     s.clear();
