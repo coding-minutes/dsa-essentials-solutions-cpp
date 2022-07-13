@@ -36,20 +36,20 @@ node* alternateMerge(node * root1, node* root2){
         root1 = root1->next;
         root2 = root2->next;
     }
-    if(root1){
+
         while(root1){
             root = apend(root, root1->data);
             root1 = root1->next;
         }
-    }
-    if(root2){
+
+
         while(root2){
             root = apend(root, root2->data);
             root2 = root2->next;
         }
-    }
-    if(!root1) return root2;
-    if(!root2) return root1;
+
+//     if(!root1) return root2;
+//     if(!root2) return root1;
     return root;
 }
 
