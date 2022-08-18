@@ -48,8 +48,7 @@ node* alternateMerge(node * root1, node* root2){
             root2 = root2->next;
         }
     }
-    if(!root1) return root2;
-    if(!root2) return root1;
+
     return root;
 }
 
