@@ -37,3 +37,24 @@ int maxSumSubarray(vector<int> A) {
     return finalAnswer;
     
 }
+
+// 2nd approach -simple
+int maxSubArray(vector<int>& nums) {
+        // use kadane algo. 
+        // int globalMaxSum = nums[0], currMaxSum = nums[0];
+        // for (int ind = 1; ind < nums.size(); ind++) {
+        //     currMaxSum = max(currMaxSum + nums[ind], nums[ind]);
+        //     globalMaxSum = max(globalMaxSum, currMaxSum);
+        // }
+        // return globalMaxSum;  
+        
+    int larg=nums[0],curr=nums[0];
+    for(int i=1;i<nums.size();i++){
+    if(curr<0){
+        curr=0;
+    }
+    curr=curr+nums[i];
+    larg=max(larg,curr);
+    }
+        return larg;
+}
