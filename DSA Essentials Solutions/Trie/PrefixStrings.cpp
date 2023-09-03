@@ -55,9 +55,9 @@ class Trie{
            word.push_back(str[i]);
            temp=temp->next[str[i]];
         }
-        if(temp->isTerminal){
-            v.push_back(word);
-        }
+//         if(temp->isTerminal){
+//             v.push_back(word);
+//         }
         dfs(temp,v,word);
         sort(v.begin(),v.end());
         return v;
