@@ -5,25 +5,23 @@
 #include <bits/stdc++.h>
 using namespace std;
  
-bool arePermutation(string str1, string str2)
+ const int MAX_CHAR = 26;
+bool arePermutation(string A, string B)
 {
-    // Get lenghts of both strings
-    int n1 = str1.length();
-    int n2 = str2.length();
+    // your code goes here
+    int countA[MAX_CHAR] = {0};
+	int countB[MAX_CHAR] = {0};
+    int l1 = A.length(), l2 = B.length();
+    
+    for(int i=0; i<l1; i++)
+        countA[A[i]-'a']++;
+    for(int i=0; i<l2;i++)
+        countB[B[i]-'a']++;
+        
+        
+       for (int i=0 ;i <26;i++)
+           if ((countA[i] >1 && countB[i] == 0))
+           return false;
  
-    // If length of both strings is not same,
-    // then they cannot be Permutation
-    if (n1 != n2)
-      return false;
- 
-    // Sort both strings
-    sort(str1.begin(), str1.end());
-    sort(str2.begin(), str2.end());
- 
-    // Compare sorted strings
-    for (int i = 0; i < n1;  i++)
-       if (str1[i] != str2[i])
-         return false;
- 
-    return true;
+    return  true;
 }
