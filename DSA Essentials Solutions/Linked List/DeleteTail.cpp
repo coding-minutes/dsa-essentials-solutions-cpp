@@ -25,17 +25,16 @@ node* deleteTail(node * head){
         return NULL;
     }
  
-    // Find the second last node
-    node* second_last = head;
-    while (second_last->next->next != NULL)
-        second_last = second_last->next;
- 
-    // Delete last node
-    delete (second_last->next);
- 
-    // Change next of second last
-    second_last->next = NULL;
- 
+    node * temp = head;
+    node *prev = head;  //prev will hold the address of second last node
+    while(temp->next!=NULL){
+        prev = temp;
+        temp = temp->next;
+    }
+    
+    prev->next = NULL;	
+    delete temp;	//delete the last node
+    
     return head;
 }
 
